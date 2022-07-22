@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.3-preview" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB.DepotEice</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{8b38f6fa-cb24-48d5-a519-b77457ee8323}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DepotEice.Db</RootNamespace>
+    <AssemblyName>DepotEice.Db</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <!--
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  -->
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="PublishLocations" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\DepotEice_publish.xml" />
+    <None Include="PublishLocations\DepotEice.publish.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\UsersRoles.sql" />
+    <Build Include="dbo\Tables\UsersTokens.sql" />
+    <Build Include="dbo\Tables\Modules.sql" />
+    <Build Include="dbo\Tables\Schedules.sql" />
+    <Build Include="dbo\Tables\ScheduleFiles.sql" />
+    <Build Include="dbo\Tables\UsersModules.sql" />
+    <Build Include="dbo\Tables\OpeningHours.sql" />
+    <Build Include="dbo\Tables\Appointments.sql" />
+    <Build Include="dbo\Tables\Articles.sql" />
+    <Build Include="dbo\Tables\ArticleComments.sql" />
+    <Build Include="dbo\Tables\Messages.sql" />
+    <Build Include="dbo\StoredProcedures\spGetAppointment.sql" />
+    <Build Include="dbo\StoredProcedures\spGetArticleComments.sql" />
+    <Build Include="dbo\StoredProcedures\spGetArticle.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUserMessages.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateAppointment.sql" />
+    <Build Include="dbo\Functions\fnHashPassword.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteAppointment.sql" />
+    <Build Include="dbo\StoredProcedures\spGetArticleComment.sql" />
+    <Build Include="dbo\StoredProcedures\spGetModule.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateModule.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateModule.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteModule.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateUser.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateArticleComment.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateArticle.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateMessage.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateOpeningHours.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateRole.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateScheduleFile.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateSchedule.sql" />
+    <Build Include="dbo\StoredProcedures\spAddUserToModule.sql" />
+    <Build Include="dbo\StoredProcedures\spAddUserToRole.sql" />
+    <Build Include="dbo\StoredProcedures\spCreateUserToken.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteArticleComment.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteArticle.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteOpeningHours.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteRole.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteScheduleFile.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteSchedule.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteUser.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteUserModule.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteUserRole.sql" />
+    <Build Include="dbo\StoredProcedures\spDeleteUserToken.sql" />
+    <Build Include="dbo\StoredProcedures\spAcceptAppointment.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateArticleComment.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateArticle.sql" />
+    <Build Include="dbo\StoredProcedures\spPinArticle.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateOpeningHours.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateRole.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateSchedule.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateScheduleHours.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateUserInformations.sql" />
+    <Build Include="dbo\StoredProcedures\spUpdateUserPassword.sql" />
+    <Build Include="dbo\StoredProcedures\spActivateUser.sql" />
+    <Build Include="dbo\Functions\fnCreateUserTokenValue.sql" />
+    <Build Include="dbo\StoredProcedures\spGetRole.sql" />
+    <Build Include="dbo\StoredProcedures\spGetScheduleFile.sql" />
+    <Build Include="dbo\StoredProcedures\spGetScheduleFiles.sql" />
+    <Build Include="dbo\StoredProcedures\spGetSchedule.sql" />
+    <Build Include="dbo\StoredProcedures\spGetModuleSchedules.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUser.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUserModules.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUserRoles.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUserToken.sql" />
+    <Build Include="dbo\StoredProcedures\spGetUserTokens.sql" />
+    <Build Include="dbo\StoredProcedures\spMessages_GetByRequestUserId.sql" />
+    <Build Include="dbo\StoredProcedures\spMessages_BetweenUsers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DB.DepotEice.refactorlog" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[OpeningHours]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[OpenAt] DATETIME2 NOT NULL,
+	[CloseAt] DATETIME2 NOT NULL
+)
