@@ -8,7 +8,7 @@
 
 ### Appointments
 
-Represent [user](###Users)'s appointments. A User can have 0 or more appointment but an appointment must have 1 User
+Represent [user](#Users)'s appointments. A User can have 0 or more appointment but an appointment must have 1 User
 
 **Relation**
 
@@ -28,11 +28,11 @@ Represent [user](###Users)'s appointments. A User can have 0 or more appointment
  
 **FOREIGN KEYS**
 
-- `[UserId]`: [Users](###Users)
+- `[UserId]`: [Users](#Users)
 
 ### ArticleComments
 
-Represent the comment written on an [article](###Articles) by a [user](###Users).
+Represent the comment written on an [article](#Articles) by a [user](#Users).
 
 An Article can have 0 or more comments
 An User can have 0 or more comments
@@ -57,8 +57,8 @@ An User can have 0 or more comments
 
 **FOREIGN KEYS**
 
-- `[ArticleId]`: [Articles](###Articles)
-- `[UserId]`: [Users](###Users)
+- `[ArticleId]`: [Articles](#Articles)
+- `[UserId]`: [Users](#Users)
 
 ### Articles
 
@@ -78,7 +78,7 @@ An User can have 0 or more comments
 
 **FOREIGN KEYS**
 
-- `[UserId]`: [Users](###Users)
+- `[UserId]`: [Users](#Users)
 
 ### Messages
 
@@ -97,8 +97,8 @@ An User can have 0 or more comments
 
 **FOREIGN KEYS**
 
-- `SenderId` : [Users](###Users)
-- `ReceiverId` : [Users](###Users)
+- `SenderId` : [Users](#Users)
+- `ReceiverId` : [Users](#Users)
 
 ### Modules
 
@@ -137,7 +137,7 @@ An User can have 0 or more comments
 
 **FOREIGN KEYS**
 
-- `ScheduleId`: [Schedules](###Schedules)
+- `ScheduleId`: [Schedules](#Schedules)
 
 ### Schedules
 
@@ -156,7 +156,7 @@ An User can have 0 or more comments
 
 **FOREIGN KEYS**
 
-- `[ModuleId]`: [Modules](###Modules)
+- `[ModuleId]`: [Modules](#Modules)
 
 ### Users
 
@@ -193,8 +193,8 @@ PRIMARY KEY ([UserId], [ModuleId])
 
 **FOREIGN KEYS**
 
-- `UserId` : [Users](###Users)
-- `ModuleId`: [Modules](###Modules)
+- `UserId` : [Users](#Users)
+- `ModuleId`: [Modules](#Modules)
 
 ### UsersRoles
 
@@ -212,8 +212,8 @@ PRIMARY KEY ([UserId], [RoleId])
 
 **FOREIGN KEYS**
 
-- `UserId`: [Users](###Users)
-- `RoleId`: [Roles](###Roles)
+- `UserId`: [Users](#Users)
+- `RoleId`: [Roles](#Roles)
 
 ### UsersTokens
 
@@ -232,7 +232,7 @@ PRIMARY KEY ([UserId], [RoleId])
 
 **PRIMARY KEYS**
 
-- `[UserId]`: [Users](###Users)
+- `[UserId]`: [Users](#Users)
 
 [^1]: The `GETDATE()` function in MSSQL will return the current `DATETIME2` value. Check [here](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql?view=sql-server-ver16) for more details
 [^2]: The `NEWID()` function in MSSQL will generated a new UNIQUEIDENTIFIER. Check [here](https://docs.microsoft.com/en-us/sql/t-sql/functions/newid-transact-sql?view=sql-server-ver16) for more details
