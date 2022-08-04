@@ -71,6 +71,7 @@
   <ItemGroup>
     <None Include="PublishLocations\DepotEice_publish.xml" />
     <None Include="PublishLocations\DepotEice.publish.publish.xml" />
+    <None Include="PublishLocations\DB.DepotEice.Samad.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />

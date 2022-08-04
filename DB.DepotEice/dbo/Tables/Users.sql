@@ -15,3 +15,16 @@
     [UpdatedAt] DATETIME2 NULL, 
     [DeletedAt] DATETIME2 NULL
 )
+
+GO
+
+CREATE TRIGGER [dbo].[Trigger_Users_Update]
+    ON [dbo].[Users]
+    AFTER UPDATE
+AS
+BEGIN
+   UPDATE [dbo].[Users]
+   SET [UpdatedAt] = GETDATE()
+   FROM Inserted i
+   WHERE [dbo].[Users].[Id] = i.Id
+END

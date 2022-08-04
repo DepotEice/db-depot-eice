@@ -9,3 +9,16 @@
 	[UserId] UNIQUEIDENTIFIER NOT NULL,
 	CONSTRAINT [FK_Articles_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
 )
+
+GO
+
+CREATE TRIGGER [dbo].[Trigger_Articles_Update]
+    ON [dbo].[Articles]
+    AFTER UPDATE
+AS
+BEGIN
+   UPDATE [dbo].[Articles]
+   SET [UpdatedAt] = GETDATE()
+   FROM Inserted i
+   WHERE [dbo].[Articles].[Id] = i.Id
+END
