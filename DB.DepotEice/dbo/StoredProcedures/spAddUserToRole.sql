@@ -3,8 +3,6 @@
 	@userId UNIQUEIDENTIFIER
 AS
 BEGIN
-	SET NOCOUNT ON;
-
 	INSERT INTO [dbo].[UsersRoles]
 	(
 		UserId,
