@@ -6,7 +6,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 
-	DECLARE @value BINARY(32) = (SELECT [dbo].[UsersTokens].[Value] 
+	DECLARE @value NVARCHAR(32) = (SELECT [dbo].[UsersTokens].[Value] 
 									FROM [dbo].[UsersTokens] 
 									WHERE [dbo].[UsersTokens].Id = @id);
 
