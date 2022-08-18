@@ -4,14 +4,18 @@
 	@userSecurityStamp UNIQUEIDENTIFIER
 AS
 BEGIN
-	SET NOCOUNT ON;
-
-	DECLARE @value NVARCHAR(32) = (SELECT [dbo].[UsersTokens].[Value] 
+	DECLARE @expirationDate DATETIME2(7) = (SELECT [dbo].[UsersTokens].[ExpirationDate]
+											FROM [dbo].[UsersTokens]
+											WHERE [dbo].[UsersTokens].[Id] = @id)
+	
+	DECLARE @value NVARCHAR(100) = (SELECT [dbo].[UsersTokens].[Value] 
 									FROM [dbo].[UsersTokens] 
 									WHERE [dbo].[UsersTokens].Id = @id);
 
-	IF @value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type)
-		RETURN 1;
+	IF @expirationDate < GETDATE()
+		RETURN 0;										
+	ELSE IF @value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type)
+		SELECT 1;
 	ELSE
-		RETURN 0;
+		SELECT 0;
 END;
