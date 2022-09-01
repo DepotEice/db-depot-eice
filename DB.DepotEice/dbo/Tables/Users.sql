@@ -1,15 +1,16 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
-    [Email] NVARCHAR(320) NOT NULL UNIQUE, 
-    [NormalizedEmail] NVARCHAR(320) NOT NULL UNIQUE,
-    [PasswordHash] BINARY(32) NOT NULL, 
-    [FirstName] NVARCHAR(50) NOT NULL, 
-    [Lastname] NVARCHAR(100) NOT NULL,
-    [ProfilePicture] NVARCHAR(255) NOT NULL, 
-    [BirthDate] DATE NOT NULL, 
-    [ConcurrencyStamp] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(), 
-    [SecurityStamp] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+    [Email] NVARCHAR(256) NULL UNIQUE, 
+    [NormalizedEmail] NVARCHAR(256) NULL UNIQUE,
+    [EmailConfirmed] BIT NOT NULL DEFAULT 0,
+    [PasswordHash] NVARCHAR(MAX) NULL, 
+    [FirstName] NVARCHAR(50) NULL, 
+    [Lastname] NVARCHAR(100) NULL,
+    [ProfilePicture] NVARCHAR(256) NULL, 
+    [BirthDate] DATE NULL, 
+    [ConcurrencyStamp] UNIQUEIDENTIFIER NULL DEFAULT NEWID(), 
+    [SecurityStamp] UNIQUEIDENTIFIER NULL DEFAULT NEWID(),
     [IsActive] BIT NOT NULL DEFAULT 0,
     [CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(), 
     [UpdatedAt] DATETIME2 NULL, 
@@ -27,4 +28,24 @@ BEGIN
    SET [UpdatedAt] = GETDATE()
    FROM Inserted i
    WHERE [dbo].[Users].[Id] = i.Id
+END
+
+GO
+
+CREATE TRIGGER [dbo].[Trigger_Users_Delete]
+    ON [dbo].[Users]
+    INSTEAD OF DELETE
+AS
+BEGIN    
+    UPDATE [dbo].[Users]
+    SET
+        [FirstName] = NULL, 
+        [Lastname] = NULL, 
+        [ProfilePicture] = NULL,
+        [BirthDate] = NULL,
+        [ConcurrencyStamp] = NULL,
+        [SecurityStamp] = NEWID(),
+        [DeletedAt] = GETDATE()
+    FROM deleted d
+    WHERE [dbo].[Users].[Id] = d.Id
 END

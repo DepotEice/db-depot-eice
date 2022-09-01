@@ -7,4 +7,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="PasswordHash" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c5471993-ed90-4a54-baae-98914dc6eecb" ChangeDateTime="09/01/2022 07:52:24">
+    <Property Name="ElementName" Value="[dbo].[Appointments].[Accepted]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Appointments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsAccepted" />
+  </Operation>
 </Operations>
