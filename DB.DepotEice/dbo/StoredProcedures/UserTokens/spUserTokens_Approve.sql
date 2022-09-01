@@ -10,8 +10,10 @@ BEGIN
 									FROM [dbo].[UserTokens] 
 									WHERE [dbo].[UserTokens].Id = @id);
 
-	IF @value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type)
-		RETURN 1;
+	IF @expirationDate < GETDATE()
+		RETURN 0;										
+	ELSE IF @value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type)
+		SELECT 1;
 	ELSE
-		RETURN 0;
+		SELECT 0;
 END;
