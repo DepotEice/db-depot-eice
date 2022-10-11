@@ -82,7 +82,8 @@
     <Folder Include="dbo\StoredProcedures\UserTokens" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishLocations\DB.DepotEice.Samad.publish.xml" />
+    <None Include="DB.DepotEice.publish.xml" />
+    <None Include="PublishLocations\DB.DepotEice.Soultan.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
