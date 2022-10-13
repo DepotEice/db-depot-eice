@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_Create]
 	@email NVARCHAR(256),
-	@passwordHash NVARCHAR(MAX),
+	@password NVARCHAR(MAX),
+	@salt NVARCHAR(256),
 	@firstname NVARCHAR(50),
 	@lastname NVARCHAR(100),
 	@profilePicture NVARCHAR(256),
@@ -24,7 +25,7 @@ BEGIN
 	(
 		@email,
 		UPPER(@email),
-		@passwordHash,
+		[dbo].[fnHashPassword](@password, @salt),
 		@firstname,
 		@lastname,
 		@profilePicture,
