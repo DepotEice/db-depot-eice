@@ -7,7 +7,6 @@
     [PasswordHash] NVARCHAR(MAX) NULL, 
     [FirstName] NVARCHAR(50) NULL, 
     [Lastname] NVARCHAR(100) NULL,
-    [ProfilePicture] NVARCHAR(256) NULL, 
     [BirthDate] DATE NULL, 
     [ConcurrencyStamp] UNIQUEIDENTIFIER NULL DEFAULT NEWID(), 
     [SecurityStamp] UNIQUEIDENTIFIER NULL DEFAULT NEWID(),
@@ -32,20 +31,20 @@ END
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_Users_Delete]
-    ON [dbo].[Users]
-    INSTEAD OF DELETE
-AS
-BEGIN    
-    UPDATE [dbo].[Users]
-    SET
-        [FirstName] = NULL, 
-        [Lastname] = NULL, 
-        [ProfilePicture] = NULL,
-        [BirthDate] = NULL,
-        [ConcurrencyStamp] = NULL,
-        [SecurityStamp] = NEWID(),
-        [DeletedAt] = GETDATE()
-    FROM deleted d
-    WHERE [dbo].[Users].[Id] = d.Id
-END
+-- TODO : Uncomment the next line when it works
+--CREATE TRIGGER [dbo].[Trigger_Users_Delete]
+--    ON [dbo].[Users]
+--    INSTEAD OF DELETE
+--AS
+--BEGIN    
+--    UPDATE [dbo].[Users]
+--    SET
+--        [FirstName] = NULL, 
+--        [Lastname] = NULL, 
+--        [BirthDate] = NULL,
+--        [ConcurrencyStamp] = NULL,
+--        [SecurityStamp] = NEWID(),
+--        [DeletedAt] = GETDATE()
+--    FROM deleted d
+--    WHERE [dbo].[Users].[Id] = d.Id
+--END

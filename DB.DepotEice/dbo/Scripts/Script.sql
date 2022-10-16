@@ -12,7 +12,7 @@ Modèle de script de post-déploiement
 
 -- USE [dbo].[DepotEiceDB]
 
-INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Guest');
-INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Student');
-INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Teacher');
-INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Direction');
+--INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Guest');
+--INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Student');
+--INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Teacher');
+--INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Direction');

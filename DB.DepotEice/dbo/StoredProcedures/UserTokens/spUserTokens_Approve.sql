@@ -24,14 +24,28 @@ CREATE PROCEDURE [dbo].[spUserTokens_Approve]
   @userSecurityStamp UNIQUEIDENTIFIER
 AS
 BEGIN
-  SET NOCOUNT ON;
 
-  DECLARE @value NVARCHAR(32) = (SELECT [dbo].[UserTokens].[Value] 
+  DECLARE @value NVARCHAR(MAX) = (SELECT [dbo].[UserTokens].[Value] 
                   FROM [dbo].[UserTokens] 
-                  WHERE [dbo].[UserTokens].Id = @id);
+                  WHERE [dbo].[UserTokens].Id = @id)
 
-  IF @value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type)
-    RETURN 1;
+  DECLARE @userId UNIQUEIDENTIFIER = (SELECT [dbo].[UserTokens].[UserId]
+                                        FROM [dbo].[UserTokens]
+                                        WHERE [dbo].[UserTokens].[Id] = @id)
+
+  DECLARE @expirationDate DATETIME2(7) = (SELECT [dbo].[UserTokens].[ExpirationDate]
+                                            FROM [dbo].[UserTokens]
+                                            WHERE [dbo].[UserTokens].[Id] = @id)
+
+  IF (@value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type) 
+    AND CAST(@expirationDate AS DATETIME2(7)) > GETDATE())
+    BEGIN
+        UPDATE [dbo].[Users]
+        SET [SecurityStamp] = NEWID()
+        WHERE [dbo].[Users].[Id] = @userId;
+
+        SELECT 1;
+    END
   ELSE
-    RETURN 0;
+    SELECT 0;
 END;
