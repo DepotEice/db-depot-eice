@@ -10,9 +10,22 @@ Modèle de script de post-déploiement
 --------------------------------------------------------------------------------------
 */
 
--- USE [dbo].[DepotEiceDB]
+IF NOT EXISTS (SELECT * FROM [dbo].[Roles] WHERE [Roles].[Name] = ('Guest'))
+    BEGIN
+        INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Guest');
+    END
 
---INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Guest');
---INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Student');
---INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Teacher');
---INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Direction');
+IF NOT EXISTS (SELECT * FROM [dbo].[Roles] WHERE [Roles].[Name] = ('Student'))
+    BEGIN
+        INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Student');
+    END
+
+IF NOT EXISTS (SELECT * FROM [dbo].[Roles] WHERE [Roles].[Name] = ('Teacher'))
+    BEGIN
+        INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Teacher');
+    END
+
+IF NOT EXISTS (SELECT * FROM [dbo].[Roles] WHERE [Roles].[Name] = ('Direction'))
+    BEGIN
+        INSERT INTO [dbo].[Roles] ([Name]) VALUES ('Direction');
+    END

@@ -122,6 +122,6 @@
     <RefactorLog Include="DB.DepotEice.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="dbo\Scripts\Script.sql" />
+    <PostDeploy Include="dbo\Scripts\RoleScript.sql" />
   </ItemGroup>
 </Project>
