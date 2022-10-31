@@ -5,9 +5,9 @@
 	[Review] NVARCHAR(500) NOT NULL,
 	[UserId] UNIQUEIDENTIFIER NOT NULL,
 	[ArticleId] INT NOT NULL,
-	[CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(),
-	[UpdatedAt] DATETIME2 NULL,
-	[DeletedAt] DATETIME2 NULL,
+	[CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETDATE(),
+	[UpdatedAt] DATETIME2(7) NULL,
+	[DeletedAt] DATETIME2(7) NULL,
 
 	CONSTRAINT [FK_ArticleComments_Article] FOREIGN KEY ([ArticleId]) REFERENCES [Articles]([Id]),
 	CONSTRAINT [FK_ArticleComments_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
