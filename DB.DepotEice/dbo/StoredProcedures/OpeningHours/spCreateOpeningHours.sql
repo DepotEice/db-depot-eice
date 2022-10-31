@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spCreateOpeningHour]
+﻿CREATE PROCEDURE [dbo].[spCreateOpeningHours]
 	@openAt DATETIME2,
 	@closeAt DATETIME2
 AS
