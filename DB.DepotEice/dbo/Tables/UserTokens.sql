@@ -7,8 +7,5 @@
 	[ExpirationDate] DATETIME2 NOT NULL,
 	[UserId] UNIQUEIDENTIFIER NOT NULL,
 
-	CONSTRAINT [FK_UserTokens_User] 
-		FOREIGN KEY ([UserId]) 
-		REFERENCES [Users]([Id]) 
-		ON DELETE CASCADE
+	CONSTRAINT [FK_UserTokens_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]) ON DELETE CASCADE
 )
