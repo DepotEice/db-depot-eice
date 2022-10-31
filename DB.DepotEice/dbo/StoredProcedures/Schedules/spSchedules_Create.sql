@@ -12,8 +12,8 @@ BEGIN
 	(
 		Title,
 		Details,
-		StartsAt,
-		EndsAt,
+		StartAt,
+		EndAt,
 		ModuleId
 	)
 	VALUES
