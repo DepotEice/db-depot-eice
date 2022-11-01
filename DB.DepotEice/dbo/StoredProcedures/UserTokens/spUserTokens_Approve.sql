@@ -20,8 +20,7 @@
 
 CREATE PROCEDURE [dbo].[spUserTokens_Approve]
   @id UNIQUEIDENTIFIER,
-  @type NVARCHAR(100),
-  @userSecurityStamp UNIQUEIDENTIFIER
+  @type NVARCHAR(100)
 AS
 BEGIN
 
@@ -36,6 +35,10 @@ BEGIN
   DECLARE @expirationDate DATETIME2(7) = (SELECT [dbo].[UserTokens].[ExpirationDate]
                                             FROM [dbo].[UserTokens]
                                             WHERE [dbo].[UserTokens].[Id] = @id)
+
+  DECLARE @userSecurityStamp UNIQUEIDENTIFIER = (SELECT [dbo].[Users].[SecurityStamp]
+                                                    FROM [dbo].[Users]
+                                                    WHERE [dbo].[Users].[Id] = @userId)
 
   IF (@value = [dbo].[fnCreateUserTokenValue](@userSecurityStamp, @type) 
     AND CAST(@expirationDate AS DATETIME2(7)) > GETDATE())
