@@ -28,7 +28,7 @@ GO
 
 CREATE TRIGGER [dbo].[Trigger_Articles_Delete]
 	ON [dbo].[Articles]
-	FOR DELETE
+	INSTEAD OF DELETE
 AS
 BEGIN
 	SET NOCOUNT ON
