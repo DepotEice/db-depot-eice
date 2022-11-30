@@ -56,7 +56,7 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		(
 			'guest@email.com',
 			UPPER('guest@email.com'),
-			[dbo].[fnHashPassword]('Password_187', 'salt'),
+			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
 			'Phillipe',
 			'Leclerc',
 			GETDATE(),
@@ -106,7 +106,7 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		(
 			'student@email.com',
 			UPPER('student@email.com'),
-			[dbo].[fnHashPassword]('Password_187', 'salt'),
+			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
 			'Jean',
 			'Jaures',
 			GETDATE(),
@@ -155,7 +155,7 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		(
 			'teacher@email.com',
 			UPPER('teacher@email.com'),
-			[dbo].[fnHashPassword]('Password_187', 'salt'),
+			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
 			'Samuel',
 			'Legrand',
 			GETDATE(),
@@ -204,7 +204,7 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		(
 			'direction@email.com',
 			UPPER('direction@email.com'),
-			[dbo].[fnHashPassword]('Password_187', 'salt'),
+			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
 			'Paul',
 			'Magnat',
 			GETDATE(),
