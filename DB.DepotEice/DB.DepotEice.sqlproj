@@ -80,6 +80,7 @@
     <Folder Include="dbo\StoredProcedures\UserModules" />
     <Folder Include="dbo\StoredProcedures\UserRoles" />
     <Folder Include="dbo\StoredProcedures\UserTokens" />
+    <Folder Include="dbo\StoredProcedures\Addresses" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB.DepotEice.publish.xml" />
@@ -121,6 +122,7 @@
     <Build Include="dbo\StoredProcedures\UserRoles\spAddUserToRole.sql" />
     <Build Include="dbo\StoredProcedures\Users\spUsers_UpdatePassword.sql" />
     <Build Include="dbo\Tables\Addresses.sql" />
+    <Build Include="dbo\StoredProcedures\Addresses\spAddresses_Create.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB.DepotEice.refactorlog" />
