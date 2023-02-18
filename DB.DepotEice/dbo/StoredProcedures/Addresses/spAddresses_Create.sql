@@ -13,15 +13,15 @@ AS
 	
 	INSERT INTO [dbo].[Addresses]
 	(
-		Street,
-		HouseNumber,
-		Appartment,
-		City,
-		State,
-		ZipCode,
-		Country,
-		IsPrimary,
-		UserId
+		[Street],
+		[HouseNumber],
+		[Appartment],
+		[City],
+		[State],
+		[ZipCode],
+		[Country],
+		[IsPrimary],
+		[UserId]
 	)
 	VALUES
 	(
