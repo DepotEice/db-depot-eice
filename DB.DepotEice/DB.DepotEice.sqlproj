@@ -80,12 +80,7 @@
     <Folder Include="dbo\StoredProcedures\UserModules" />
     <Folder Include="dbo\StoredProcedures\UserRoles" />
     <Folder Include="dbo\StoredProcedures\UserTokens" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DB.DepotEice.publish.xml" />
-    <None Include="PublishLocations\DB.DepotEice.Soultan.publish.xml" />
-    <None Include="PublishLocations\Azure.DepotEice.publish.xml" />
-    <None Include="DB_1.DepotEice.publish.xml" />
+    <Folder Include="dbo\StoredProcedures\Addresses" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
@@ -120,11 +115,14 @@
     <Build Include="dbo\StoredProcedures\UserTokens\spUserTokens_Create.sql" />
     <Build Include="dbo\StoredProcedures\UserRoles\spAddUserToRole.sql" />
     <Build Include="dbo\StoredProcedures\Users\spUsers_UpdatePassword.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="DB.DepotEice.refactorlog" />
+    <Build Include="dbo\Tables\Addresses.sql" />
+    <Build Include="dbo\StoredProcedures\Addresses\spAddresses_Create.sql" />
+    <Build Include="dbo\StoredProcedures\Addresses\spAddresses_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\DeployementScript.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\DepotEice.publish.xml" />
   </ItemGroup>
 </Project>
