@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
-    [ProfilePictureUrl] NVARCHAR(255) NOT NULL,
+    [ProfilePictureUrl] NVARCHAR(255) NULL,
     [Email] NVARCHAR(256) NULL UNIQUE, 
     [NormalizedEmail] NVARCHAR(256) NULL UNIQUE,
     [SchoolEmail] NVARCHAR(256) NULL UNIQUE,
