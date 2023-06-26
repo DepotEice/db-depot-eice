@@ -81,6 +81,7 @@
     <Folder Include="dbo\StoredProcedures\UserRoles" />
     <Folder Include="dbo\StoredProcedures\UserTokens" />
     <Folder Include="dbo\StoredProcedures\Addresses" />
+    <Folder Include="dbo\StoredProcedures\Files" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
@@ -118,6 +119,8 @@
     <Build Include="dbo\Tables\Addresses.sql" />
     <Build Include="dbo\StoredProcedures\Addresses\spAddresses_Create.sql" />
     <Build Include="dbo\StoredProcedures\Addresses\spAddresses_Update.sql" />
+    <Build Include="dbo\Tables\Files.sql" />
+    <Build Include="dbo\StoredProcedures\Files\spFiles_Create.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Scripts\DeployementScript.sql" />
