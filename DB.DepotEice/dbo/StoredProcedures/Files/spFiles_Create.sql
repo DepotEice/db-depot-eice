@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spFiles_Create]
 	@key NVARCHAR(255),
 	@path NVARCHAR(255),
-	@size INT,
+	@size BIGINT,
 	@type NVARCHAR(255)
 AS
 BEGIN

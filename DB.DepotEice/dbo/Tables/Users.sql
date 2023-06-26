@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
 	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
-    [ProfilePictureUrl] NVARCHAR(255) NULL,
+    [ProfilePictureId] INT NULL,
     [Email] NVARCHAR(256) NULL UNIQUE, 
     [NormalizedEmail] NVARCHAR(256) NULL UNIQUE,
     [SchoolEmail] NVARCHAR(256) NULL,
@@ -18,7 +18,9 @@
     [IsActive] BIT NOT NULL DEFAULT 0,
     [CreatedAt] DATETIME2 NOT NULL DEFAULT GETDATE(), 
     [UpdatedAt] DATETIME2 NULL, 
-    [DeletedAt] DATETIME2 NULL
+    [DeletedAt] DATETIME2 NULL,
+
+    CONSTRAINT [FK_Users_File] FOREIGN KEY ([ProfilePictureId]) REFERENCES [Files]([Id]),
 )
 
 GO

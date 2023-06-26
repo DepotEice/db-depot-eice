@@ -43,7 +43,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
     BEGIN
 		INSERT INTO [dbo].[Users]
 		(
-			ProfilePictureUrl,
 			Email, 
 			NormalizedEmail,
 			PasswordHash,
@@ -55,7 +54,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		)
 		VALUES 
 		(
-			'NO_PICTURE.svg)',
 			'guest@email.com',
 			UPPER('guest@email.com'),
 			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
@@ -95,7 +93,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 	BEGIN
         INSERT INTO [dbo].[Users]
 		(
-			ProfilePictureUrl,
 			Email, 
 			NormalizedEmail,
 			PasswordHash,
@@ -107,7 +104,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		)
 		VALUES 
 		(
-			'NO_PICTURE.svg)',
 			'student@email.com',
 			UPPER('student@email.com'),
 			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
@@ -146,7 +142,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 	BEGIN
         INSERT INTO [dbo].[Users]
 		(
-			ProfilePictureUrl,
 			Email, 
 			NormalizedEmail,
 			PasswordHash,
@@ -158,7 +153,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		)
 		VALUES 
 		(
-			'NO_PICTURE.svg)',
 			'teacher@email.com',
 			UPPER('teacher@email.com'),
 			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
@@ -197,7 +191,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 	BEGIN
         INSERT INTO [dbo].[Users]
 		(
-			ProfilePictureUrl,
 			Email, 
 			NormalizedEmail,
 			PasswordHash,
@@ -209,7 +202,6 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 		)
 		VALUES 
 		(
-			'NO_PICTURE.svg)',
 			'direction@email.com',
 			UPPER('direction@email.com'),
 			[dbo].[fnHashPassword]('Password_187', '5C2iqv9FSwEIqiD9ZOrDCQhvK8OFnVJUCelLsikTZBUk4xuZnt4HlFj1PbbiHimx58LAGtZc9+tbEI9pyT9x4A=='),
