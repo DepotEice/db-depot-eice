@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUsers_Update]
 	@id UNIQUEIDENTIFIER,
+	@profilePictureId INT,
 	@firstName NVARCHAR(50),
 	@lastName NVARCHAR(100),
 	@birthDate DATETIME,
@@ -10,7 +11,8 @@ AS
 	UPDATE [dbo].[Users]
 	SET
 		[FirstName] = @firstName,
-		[Lastname] = @lastName,
+		[ProfilePictureId] = @profilePictureId,
+ 		[Lastname] = @lastName,
 		[BirthDate] = @birthDate,
 		[MobileNumber] = @mobileNumber,
 		[PhoneNumber] = @phoneNumber,

@@ -21,7 +21,7 @@
     [UpdatedAt] DATETIME2 NULL, 
     [DeletedAt] DATETIME2 NULL,
 
-    CONSTRAINT [FK_Users_File] FOREIGN KEY ([ProfilePictureId]) REFERENCES [Files]([Id]),
+    CONSTRAINT [FK_Users_File] FOREIGN KEY ([ProfilePictureId]) REFERENCES [Files]([Id]) ON DELETE SET NULL,
 )
 
 GO

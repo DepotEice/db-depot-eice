@@ -25,19 +25,19 @@ END
 
 GO
 
---CREATE TRIGGER [dbo].[Trigger_File_Delete]
---	ON [dbo].[Files]
---	INSTEAD OF DELETE
---AS
---BEGIN    
---	UPDATE [dbo].[Files]
---	SET
---		[Key] = NULL,
---		[Path] = NULL,
---		[Size] = NULL,
---		[Type] = NULL,
---		[UpdatedAt] = GETDATE(),
---		[DeletedAt] = GETDATE()
---	FROM deleted d
---	WHERE [dbo].[Files].[Id] = d.Id
---END
+CREATE TRIGGER [dbo].[Trigger_File_Delete]
+	ON [dbo].[Files]
+	INSTEAD OF DELETE
+AS
+BEGIN    
+	UPDATE [dbo].[Files]
+	SET
+		[Key] = NULL,
+		[Path] = NULL,
+		[Size] = NULL,
+		[Type] = NULL,
+		[UpdatedAt] = GETDATE(),
+		[DeletedAt] = GETDATE()
+	FROM deleted d
+	WHERE [dbo].[Files].[Id] = d.Id
+END
