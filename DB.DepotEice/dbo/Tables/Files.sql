@@ -32,10 +32,8 @@ AS
 BEGIN    
 	UPDATE [dbo].[Files]
 	SET
-		[Key] = NULL,
 		[Path] = NULL,
 		[Size] = NULL,
-		[Type] = NULL,
 		[UpdatedAt] = GETDATE(),
 		[DeletedAt] = GETDATE()
 	FROM deleted d
