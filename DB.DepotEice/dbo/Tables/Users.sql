@@ -39,20 +39,19 @@ END
 
 GO
 
--- TODO : Uncomment the next line when it works
---CREATE TRIGGER [dbo].[Trigger_Users_Delete]
---    ON [dbo].[Users]
---    INSTEAD OF DELETE
---AS
---BEGIN    
---    UPDATE [dbo].[Users]
---    SET
---        [FirstName] = NULL, 
---        [Lastname] = NULL, 
---        [BirthDate] = NULL,
---        [ConcurrencyStamp] = NULL,
---        [SecurityStamp] = NEWID(),
---        [DeletedAt] = GETDATE()
---    FROM deleted d
---    WHERE [dbo].[Users].[Id] = d.Id
---END
+CREATE TRIGGER [dbo].[Trigger_Users_Delete]
+    ON [dbo].[Users]
+    INSTEAD OF DELETE
+AS
+BEGIN    
+    UPDATE [dbo].[Users]
+    SET
+        [FirstName] = NULL, 
+        [Lastname] = NULL, 
+        [BirthDate] = NULL,
+        [ConcurrencyStamp] = NULL,
+        [SecurityStamp] = NEWID(),
+        [DeletedAt] = GETDATE()
+    FROM deleted d
+    WHERE [dbo].[Users].[Id] = d.Id
+END
