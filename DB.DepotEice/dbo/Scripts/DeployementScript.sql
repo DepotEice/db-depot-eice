@@ -231,3 +231,35 @@ IF NOT EXISTS (SELECT * FROM UserRoles
 			@directionUserId
 		);
 	END
+
+
+-- Delete all existing records from the OpeningHours table
+DELETE FROM [dbo].[OpeningHours];
+
+-- Common Table Expression (CTE) to generate dates from 01/07/2022 to 31/08/2022
+;WITH DateRange AS (
+    SELECT CAST('2023-07-01' AS DATETIME2) AS Date
+    UNION ALL
+    SELECT DATEADD(DAY, 1, Date)
+    FROM DateRange
+    WHERE Date < '2023-10-31'
+)
+-- Inserting opening hours for the specified days and times
+INSERT INTO [dbo].[OpeningHours] ([OpenAt], [CloseAt])
+SELECT 
+    CASE 
+        WHEN DATEPART(WEEKDAY, Date) BETWEEN 2 AND 6 THEN -- Monday to Friday
+            DATEADD(HOUR, 17, CAST(Date AS DATETIME2)) -- Open at 5 PM
+        WHEN DATEPART(WEEKDAY, Date) = 7 THEN -- Saturday
+            DATEADD(HOUR, 8, CAST(Date AS DATETIME2)) -- Open at 8 AM
+    END AS [OpenAt],
+    CASE 
+        WHEN DATEPART(WEEKDAY, Date) BETWEEN 2 AND 6 THEN -- Monday to Friday
+            DATEADD(HOUR, 20, CAST(Date AS DATETIME2)) -- Close at 8 PM
+        WHEN DATEPART(WEEKDAY, Date) = 7 THEN -- Saturday
+            DATEADD(HOUR, 12, CAST(Date AS DATETIME2)) -- Close at 12 PM
+    END AS [CloseAt]
+FROM DateRange
+WHERE DATEPART(WEEKDAY, Date) BETWEEN 2 AND 7 -- Filter for Monday to Saturday
+OPTION (MAXRECURSION 1000); -- Increase if necessary
+
