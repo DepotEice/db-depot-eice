@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[Articles]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+	[MainImageId] INT NOT NULL,
 	[Title] NVARCHAR(100) NOT NULL,
 	[Body] TEXT NOT NULL,
 	[CreatedAt] DATETIME2(7) NOT NULL DEFAULT GETDATE(),
@@ -8,7 +9,9 @@
 	[DeletedAt] DATETIME2(7) NULL,
 	[IsPinned] BIT NOT NULL DEFAULT 0,
 	[UserId] UNIQUEIDENTIFIER NOT NULL,
-	CONSTRAINT [FK_Articles_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
+
+	CONSTRAINT [FK_Articles_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
+	CONSTRAINT [FK_Articles_File] FOREIGN KEY ([MainImageId]) REFERENCES [Files]([Id]) ON DELETE SET NULL
 )
 
 GO
