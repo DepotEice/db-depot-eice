@@ -1,12 +1,21 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateScheduleFile]
-	@filePath NVARCHAR(255),
+	@fileId INT,
 	@scheduleId INT
 AS
 BEGIN
 	SET NoCount ON;
 
-	INSERT INTO [dbo].[ScheduleFiles] (FilePath, ScheduleId)
-	VALUES (@filePath, @scheduleId);
+	INSERT INTO 
+		[dbo].[ScheduleFiles] 
+		(
+			[FileId],
+			[ScheduleId]
+		)
+	VALUES 
+		(
+			@fileId, 
+			@scheduleId
+		);
 
 	SELECT SCOPE_IDENTITY();
 END
