@@ -11,7 +11,7 @@
 	[UserId] UNIQUEIDENTIFIER NOT NULL,
 
 	CONSTRAINT [FK_Articles_User] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
-	CONSTRAINT [FK_Articles_File] FOREIGN KEY ([MainImageId]) REFERENCES [Files]([Id]) ON DELETE SET NULL
+	CONSTRAINT [FK_Articles_File] FOREIGN KEY ([MainImageId]) REFERENCES [Files]([Id])
 )
 
 GO
