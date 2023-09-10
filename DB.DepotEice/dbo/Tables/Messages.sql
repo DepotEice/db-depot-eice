@@ -5,6 +5,7 @@
 	[ReceiverId] UNIQUEIDENTIFIER NOT NULL,
 	[Content] TEXT NOT NULL,
 	[SentAt] DATETIME2(7) NOT NULL DEFAULT GETDATE(),
+	[Read] BIT NOT NULL DEFAULT 0,
 
 	CONSTRAINT [FK_Messages_Sender] FOREIGN KEY ([SenderId]) REFERENCES Users([Id]),
 	CONSTRAINT [FK_Messages_Receiver] FOREIGN KEY ([ReceiverId]) REFERENCES Users([Id])
