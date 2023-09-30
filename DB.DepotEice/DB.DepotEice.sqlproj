@@ -127,8 +127,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\DepotEice.publish.xml" />
-    <None Include="DB.DepotEice.publish.xml" />
-    <None Include="DB_1.DepotEice.publish.xml" />
-    <None Include="DepotEice.publish.xml" />
   </ItemGroup>
 </Project>
