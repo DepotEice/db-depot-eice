@@ -4,6 +4,6 @@
 	[FileId] INT NOT NULL,
 	[ScheduleId] INT NOT NULL,
 
-	CONSTRAINT [FK_ScheduleFiles_Schedule] FOREIGN KEY ([ScheduleId]) REFERENCES [Schedules]([Id]),
-	CONSTRAINT [FK_ScheduleFiles_File] FOREIGN KEY ([FileId]) REFERENCES [Files]([Id])
+	CONSTRAINT [FK_ScheduleFiles_Schedule] FOREIGN KEY ([ScheduleId]) REFERENCES [Schedules]([Id]) ON DELETE CASCADE,
+	CONSTRAINT [FK_ScheduleFiles_File] FOREIGN KEY ([FileId]) REFERENCES [Files]([Id]) ON DELETE CASCADE
 )

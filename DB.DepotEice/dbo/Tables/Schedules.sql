@@ -7,5 +7,5 @@
 	[EndAt] DATETIME2 NOT NULL,
 	[ModuleId] INT NOT NULL,
 
-	CONSTRAINT [FK_Schedules_Module] FOREIGN KEY ([ModuleId]) REFERENCES [Modules]([Id])
+	CONSTRAINT [FK_Schedules_Module] FOREIGN KEY ([ModuleId]) REFERENCES [Modules]([Id]) ON DELETE CASCADE
 )
